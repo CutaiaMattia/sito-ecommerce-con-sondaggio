@@ -1,0 +1,11 @@
+nav{
+  background-color: rgb(168, 212, 255);
+}
+
+
+div#testo{
+  width : 48px;
+  height : 48px;
+ padding-left: 50%;
+ padding-top: 10px;
+}

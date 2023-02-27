@@ -1,0 +1,9 @@
+.container-fluid{
+
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center !important;
+  height: 60vh;
+
+}
