@@ -1,7 +1,7 @@
 package it.negozio.service;
 
-import it.negozio.data.model.Immagine;
-import it.negozio.data.model.Prodotto;
+import it.negozio.model.Immagine;
+import it.negozio.model.Prodotto;
 import it.negozio.repository.IImmagineRepository;
 import it.negozio.repository.IProdottoRepository;
 import org.springframework.stereotype.Service;
@@ -84,14 +84,14 @@ public class ImmagineService implements IImmagineService {
     }
 
     @Override
-    public List<String>  getUrlByIdProdotto(int idProdotto){
-        List<String> urls = new ArrayList<>();
+    public List<Immagine>  getUrlByIdProdotto(int idProdotto){
+        List<Immagine> immagini = new ArrayList<>();
         for(Immagine immagine :getAll()){
             if(immagine.getProdotto().getId() == idProdotto){
-                urls.add(immagine.getUrl());
+                immagini.add(immagine);
             }
 
         }
-        return urls;
+        return immagini;
     }
 }

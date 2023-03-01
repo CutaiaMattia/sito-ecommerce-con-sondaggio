@@ -1,0 +1,59 @@
+
+
+
+img {
+    width: 200px;
+    height: auto;
+  }
+
+p{
+  margin: 2px;
+}
+
+#container{
+  background-color: aliceblue;
+  flex-wrap: nowrap;
+  align-items: center;
+  background-size: cover;
+  display: flex;
+  contain: content;
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+}
+
+#card{
+  display: flex;
+  flex-direction: row;
+}
+
+#testi{
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  margin-top: 15px;
+}
+
+#titolo:hover{
+  color: rgb(118, 20, 255);
+  cursor: pointer;
+
+}
+
+#titolo{
+  max-width: fit-content;
+}
+
+#bottoni{
+  display: flex;
+  flex-direction: row;
+  place-self: end;
+}
+#bottoni:hover{
+  opacity: 0.8;
+}
+
+
+#acquista{
+  border: solid 3px lightblue;
+}

@@ -1,9 +1,7 @@
-package it.negozio.data.model;
+package it.negozio.model;
 
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import it.negozio.data.archetypes.IModel;
-import it.negozio.data.dto.ProdottoDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,7 +17,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(catalog = "negozio",schema = "")
-public class Prodotto implements IModel {
+public class Prodotto{
 
 
     @Id
@@ -50,15 +48,5 @@ public class Prodotto implements IModel {
     @JoinColumn(name = "id_Prodotto")
     private List<Immagine> immagini;
 
-    @Override
-    public ProdottoDto toDto() {
-        return ProdottoDto.builder()
-                .barcode(barcode)
-                .titolo(titolo)
-                .descrizione(descrizione)
-                .valido(valido)
-                .prezzo(prezzo)
-                .categoria(categoria)
-                .build();
-    }
+
 }

@@ -1,4 +1,4 @@
-package it.negozio.data.model;
+package it.negozio.model;
 
 public enum Cat {
 

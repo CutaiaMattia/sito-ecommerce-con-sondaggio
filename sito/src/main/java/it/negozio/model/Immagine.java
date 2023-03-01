@@ -1,8 +1,6 @@
-package it.negozio.data.model;
+package it.negozio.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import it.negozio.data.archetypes.IModel;
-import it.negozio.data.dto.ImmagineDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +15,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(catalog = "negozio",schema = "")
-public class Immagine implements IModel {
+public class Immagine  {
 
     public static final String FK_PRODOTTO_IMMAGINE = "prodotto";
 
@@ -36,11 +34,5 @@ public class Immagine implements IModel {
     private String url ="";
 
 
-    @Override
-    public ImmagineDto toDto() {
-        return ImmagineDto.builder()
-                .id_Prodotto(prodotto.getId())
-                .url(url)
-                .build();
-    }
+
 }

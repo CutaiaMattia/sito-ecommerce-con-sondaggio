@@ -1,7 +1,6 @@
 package it.negozio.controller;
 
-import it.negozio.data.dto.ProdottoDto;
-import it.negozio.data.model.Prodotto;
+import it.negozio.model.Prodotto;
 import it.negozio.service.IProdottoService;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,25 +20,17 @@ public class ProdottoController {
 
 
     @GetMapping
-    public List<ProdottoDto> getAll(){
-        List<ProdottoDto> prodottoDtoList = new ArrayList<>();
+    public List<Prodotto> getAll(){
         List<Prodotto> prodottoList = iProdottoService.getAll();
-        for(Prodotto prodottoToDto : prodottoList){
-           ProdottoDto prodottoToShow = prodottoToDto.toDto();
-            prodottoDtoList.add(prodottoToShow);
-        }
-        return prodottoDtoList;
+        return prodottoList;
     }
 
-    @PostMapping
-    public boolean save(@RequestBody ProdottoDto prodottoDto){
-       return iProdottoService.insert(prodottoDto.toModel());
-    }
+
 
 
      @GetMapping("/{id}")
-     public ProdottoDto getById(@PathVariable int id){
-     return iProdottoService.getById(id).get().toDto();
+     public Prodotto getById(@PathVariable int id){
+     return iProdottoService.getById(id).get();
       }
 
 

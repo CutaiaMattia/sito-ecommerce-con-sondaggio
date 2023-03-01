@@ -1,7 +1,7 @@
 package it.negozio.controller;
 
-import it.negozio.data.dto.ImmagineDto;
-import it.negozio.data.model.Immagine;
+
+import it.negozio.model.Immagine;
 import it.negozio.service.IImmagineService;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,26 +20,21 @@ public class ImmagineController {
 
 
     @GetMapping("/all")
-    public List<ImmagineDto> getAll(){
-        List<ImmagineDto> immagineDtoList = new ArrayList<>();
+    public List<Immagine> getAll(){
         List<Immagine> immagineList = iImmagineService.getAll();
-        for(Immagine immagineToDto : immagineList){
-           ImmagineDto immagineToShow = immagineToDto.toDto();
-            immagineDtoList.add(immagineToShow);
-        }
-        return immagineDtoList;
+        return immagineList;
     }
 
 
 
      @GetMapping("/{id}")
-     public ImmagineDto getById(@PathVariable int id){
-     return iImmagineService.getById(id).get().toDto();
+     public Immagine getById(@PathVariable int id){
+     return iImmagineService.getById(id).get();
       }
 
 
-      @GetMapping
-    public List<String> getAllByIdProdotto(int idProdotto){
+      @GetMapping("/prodotto/{idProdotto}")
+    public List<Immagine> getAllByIdProdotto(@PathVariable int idProdotto){
         return iImmagineService.getUrlByIdProdotto(idProdotto);
       }
 }

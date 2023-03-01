@@ -1,6 +1,6 @@
 package it.negozio.service;
 
-import it.negozio.data.model.Prodotto;
+import it.negozio.model.Prodotto;
 import it.negozio.repository.IProdottoRepository;
 import org.springframework.stereotype.Service;
 
@@ -31,20 +31,7 @@ public class ProdottoService implements IProdottoService {
         }
     }
 
-    // TODO: 08/12/2022 id non si auto-genera
-    @Override
-    public Boolean insert(Prodotto prodotto) {
-        Optional<Prodotto> prodottoOptional = iProdottoRepository.findById(prodotto.getId());
-        if (prodottoOptional.isPresent()) {
-            return false;
-        } else {
-            prodotto.setDataModifica(LocalDate.now());
-            prodotto.setDataCreazione(LocalDate.now());
-            iProdottoRepository.save(prodotto);
-            return true;
-        }
 
-    }
 
     @Override
     public Boolean update(Prodotto prodotto) {

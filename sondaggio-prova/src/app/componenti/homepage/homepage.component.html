@@ -1,12 +1,27 @@
 <app-navbar></app-navbar>
 
 
-<div *ngFor="let prodotto of prodotti">
-<h1>{{prodotto.titolo}}</h1>
-<p>{{prodotto.descrizione}}</p>
-<p>{{prodotto.prezzo}}</p>
+<div *ngFor="let prodotto of prodotti; let i = index" class="container my-4">
+  <div  class="card mb-3" style="background-color: #00bbff39; " >
+    <div id="card">
+      <div id="container">
+        <img src ="{{prodotto.immagini[i].url}}" >
+      </div>
+      <div id="testi" >
+        <h4 routerLink="/prodotto" id="titolo" class="card-title">{{prodotto.titolo}}</h4>
+        <p class="card-text">{{prodotto.descrizione}}</p>
+        <p class="card-text">{{prodotto.prezzo| currency:'EUR':'symbol':'.2-2':'it'}}</p>
+      </div>
+    </div>
+    <div id="bottoni">
+    <button class="btn btn-light mx-3 my-3" id="acquista" style="color: white; background-color:#0d6efd;">Acquista</button>
+
+  </div>
+  </div>
+
 </div>
-
-
-
+<br><br><br><br>
 <app-footer></app-footer>
+
+
+

@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EsitoComponent } from './componenti/esito/esito.component';
 import { Page404Component } from './componenti/page404/page404.component';
+import { ProdottoComponent } from './componenti/prodotto/prodotto.component';
 
 
 
@@ -25,6 +26,7 @@ import { Page404Component } from './componenti/page404/page404.component';
     HomepageComponent,
     EsitoComponent,
     Page404Component,
+    ProdottoComponent,
 
 
   ],
