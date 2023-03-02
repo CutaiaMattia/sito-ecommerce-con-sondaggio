@@ -1,44 +1,77 @@
 <app-navbar></app-navbar>
 <div class="container-fluid" id="padre">
-<form #sondaggio="ngForm" (ngSubmit)="post(sondaggio)" >
-<div *ngFor="let domanda of domande; let i = index" >
-  <div [ngSwitch]="domanda.tipoDomanda" >
-    <div *ngSwitchCase="'M'" >
-      <h1 > {{domanda.domanda}}</h1>
-      <select style="width: 350px;" class="form-select" aria-label="Default select example"  name="domanda{{i}}" ngModel required>
-        <option  *ngFor="let risposta of parseArray(i)" > {{risposta}}</option>
-      </select>
-    </div>
-    <div *ngSwitchCase="'R'">
-      <h1 > {{domanda.domanda}}</h1>
-      <select  style="width: 350px;" class="form-select" aria-label="Default select example"  name="domanda{{i}}" ngModel required>
-        <option value="si">si</option>
-        <option value="no">no</option>
-      </select>
+  <form #sondaggio="ngForm" (ngSubmit)="post(sondaggio)">
+    <div *ngFor="let domanda of domande; let i = index">
+      <div [ngSwitch]="domanda.tipoDomanda">
+        <div *ngSwitchCase="'M'">
+          <h1>{{ domanda.domanda }}</h1>
+          <select
+            style="width: 350px"
+            class="form-select"
+            aria-label="Default select example"
+            name="domanda{{ i }}"
+            ngModel
+            required
+          >
+            <option *ngFor="let risposta of parseArray(i)">
+              {{ risposta }}
+            </option>
+          </select>
+        </div>
+        <div *ngSwitchCase="'R'">
+          <h1>{{ domanda.domanda }}</h1>
+          <select
+            style="width: 350px"
+            class="form-select"
+            aria-label="Default select example"
+            name="domanda{{ i }}"
+            ngModel
+            required
+          >
+            <option value="si">si</option>
+            <option value="no">no</option>
+          </select>
+        </div>
+
+        <div *ngSwitchCase="'D'">
+          <h1>{{ domanda.domanda }}</h1>
+          <input type="date" name="domanda{{ i }}" ngModel required />
+        </div>
+        <div *ngSwitchCase="'T'">
+          <h1>{{ domanda.domanda }}</h1>
+          <textarea
+            style="width: 350px"
+            type="text"
+            name="domanda{{ i }}"
+            ngModel
+            required
+          ></textarea>
+        </div>
+      </div>
     </div>
 
-    <div *ngSwitchCase="'D'">
-      <h1 > {{domanda.domanda}}</h1>
-      <input type="date"   name= "domanda{{i}}"  ngModel required>
+    <br />
+    <div class="container-fluid flex-wrap" id="figlio">
+      <button
+        class="btn btn-success mx-3"
+        id="prev"
+        type="button"
+        (click)="btnPrev()"
+        [disabled]="cont == 1 && percorso == 0"
+      >
+        indietro
+      </button>
+
+      <button
+        id="next"
+        class="btn btn-success mx-3"
+        type="submit"
+        [disabled]="!sondaggio.valid"
+      >
+        avanti
+      </button>
     </div>
-    <div *ngSwitchCase="'T'">
-      <h1 > {{domanda.domanda}}</h1>
-      <textarea  style="width: 350px;" type="text"  name="domanda{{i}}" ngModel required></textarea>
-    </div>
-
-  </div>
-
-
+  </form>
 </div>
-
-<br>
-<div class="container-fluid flex-wrap" id="figlio">
-  <button class="btn btn-success mx-3" id="prev" type="button" (click)="btnPrev()" [disabled]="cont == 1 && percorso == 0">  indietro</button>
-
-  <button id="next" class="btn btn-success mx-3" type="submit"  [disabled]="!sondaggio.valid" >avanti</button>
-</div>
-</form>
-
-</div>
-<br><br><br><br><br>
+<br /><br /><br /><br /><br />
 <app-footer></app-footer>

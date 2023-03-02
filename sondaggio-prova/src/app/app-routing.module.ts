@@ -5,14 +5,16 @@ import { HomepageComponent } from './componenti/homepage/homepage.component';
 import { EsitoComponent } from './componenti/esito/esito.component';
 import { Page404Component } from './componenti/page404/page404.component';
 import { GuardEsitoGuard } from './auth/guard-esito.guard';
+import { ProdottoComponent } from './componenti/prodotto/prodotto.component';
 
 
 const routes: Routes = [
   {path:"" , component:HomepageComponent},
   {path:"sondaggio", component:  SondaggioComponent},
-
   {path:"404", component:Page404Component},
   {path:"esito", component: EsitoComponent, canActivate :[GuardEsitoGuard]},
+  { path:"prodotto", component:ProdottoComponent },
+  {path:"prodotto/:id", component: ProdottoComponent },
   {path:"**", redirectTo: "/404"}
 
 ];

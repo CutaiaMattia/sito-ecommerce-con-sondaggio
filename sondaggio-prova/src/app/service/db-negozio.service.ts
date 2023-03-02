@@ -17,4 +17,9 @@ export class DbNegozioService {
   getImageByIdProdotto(idProdotto : number){
     return this.http.get("http://localhost:8080/immagine/prodotto/"+ idProdotto)
   }
+
+
+  getProdottoById(idProdotto: number){
+    return this.http.get("http://localhost:8080/prodotto/"+ idProdotto)
+  }
 }
