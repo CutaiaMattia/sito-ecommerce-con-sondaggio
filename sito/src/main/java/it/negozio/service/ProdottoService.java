@@ -5,6 +5,7 @@ import it.negozio.repository.IProdottoRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +32,18 @@ public class ProdottoService implements IProdottoService {
         }
     }
 
+    @Override
+    public List<Prodotto> getProdottiByCategoria(String categoria) {
+        List<Prodotto> prodottoPhone = new ArrayList<>();
+        for(Prodotto prodotto : iProdottoRepository.findAll()) {
+            if (prodotto.getCategoria().name().equalsIgnoreCase(categoria)) {
+                prodottoPhone.add(prodotto);
+            }
+        }
+
+            return prodottoPhone;
+
+    }
 
 
     @Override

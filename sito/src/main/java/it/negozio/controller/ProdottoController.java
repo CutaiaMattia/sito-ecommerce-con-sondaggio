@@ -14,24 +14,27 @@ public class ProdottoController {
 
     private IProdottoService iProdottoService;
 
-    public ProdottoController(IProdottoService iProdottoService){
+    public ProdottoController(IProdottoService iProdottoService) {
         this.iProdottoService = iProdottoService;
     }
 
 
     @GetMapping
-    public List<Prodotto> getAll(){
+    public List<Prodotto> getAll() {
         List<Prodotto> prodottoList = iProdottoService.getAll();
         return prodottoList;
     }
 
+    @GetMapping("/prodotto/{categoria}")
+    public List<Prodotto> getProdottiByCategoria(@PathVariable String categoria){
+        return iProdottoService.getProdottiByCategoria(categoria);
+    }
 
 
-
-     @GetMapping("/{id}")
-     public Prodotto getById(@PathVariable int id){
-     return iProdottoService.getById(id).get();
-      }
+    @GetMapping("/{id}")
+    public Prodotto getById(@PathVariable int id) {
+        return iProdottoService.getById(id).get();
+    }
 
 
 }

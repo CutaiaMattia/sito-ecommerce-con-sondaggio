@@ -1,5 +1,48 @@
 
+
+.navbar-brand{
+  font-family: 'Rampart One', cursive;
+}
+
 .navbar{
-   background-color: rgb(168, 212, 255)
+
+  padding: 1vw;
+  height:  15vh;
+   background-color: rgb(168, 212, 255);
+   display: flex;
+   flex-wrap: nowrap;
+  }
+
+
+
+  input{
+    width: 14vw;
 
   }
+
+  #search{
+    width: 33vw;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+
+  }
+
+
+
+  #badge{
+    width: 33vw;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+  }
+
+.dropdown-menu{
+  text-align: center;
+  border: 1px solid;
+  padding: 10px;
+  box-shadow: 2px 5px #888888;
+  background: aliceblue;
+}
+

@@ -2,13 +2,20 @@
 
 
 img {
+    padding: 1vh;
     width: 200px;
     height: auto;
   }
 
-p{
-  margin: 2px;
+p.card-text{
+  margin: 1vw;
+  text-align: center;
 }
+
+#contenuto{
+  display: inline-block;
+}
+
 
 #container{
   background-color: aliceblue;
@@ -24,24 +31,16 @@ p{
 
 #card{
   display: flex;
-  flex-direction: row;
-}
-
-#testi{
-  display: flex;
   flex-direction: column;
-  text-align: justify;
-  margin-top: 15px;
-}
-
-#titolo:hover{
-  color: rgb(118, 20, 255);
-  cursor: pointer;
+  align-items: center;
 
 }
+
 
 #titolo{
-  max-width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #bottoni{
@@ -54,6 +53,10 @@ p{
 }
 
 
-#acquista{
-  border: solid 3px lightblue;
+#titolo:hover{
+  color: rgb(118, 20, 255);
+  cursor: pointer;
+
 }
+
+

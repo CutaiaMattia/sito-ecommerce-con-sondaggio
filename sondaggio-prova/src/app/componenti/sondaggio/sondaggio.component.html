@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<div class="container-fluid" id="padre">
+<div class="container" id="padre">
   <form #sondaggio="ngForm" (ngSubmit)="post(sondaggio)">
     <div *ngFor="let domanda of domande; let i = index">
       <div [ngSwitch]="domanda.tipoDomanda">
@@ -51,7 +51,7 @@
     </div>
 
     <br />
-    <div class="container-fluid flex-wrap" id="figlio">
+    <div class="container flex-wrap" id="figlio">
       <button
         class="btn btn-success mx-3"
         id="prev"
@@ -73,5 +73,5 @@
     </div>
   </form>
 </div>
-<br /><br /><br /><br /><br />
+
 <app-footer></app-footer>

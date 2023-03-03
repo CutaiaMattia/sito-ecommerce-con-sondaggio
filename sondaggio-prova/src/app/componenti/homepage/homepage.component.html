@@ -1,12 +1,12 @@
 <app-navbar></app-navbar>
 
-<div *ngFor="let prodotto of prodotti; let i = index" class="container my-4">
-  <div class="card mb-3" style="background-color: #00bbff39">
+<div *ngFor="let prodotto of prodotti; let i = index" class="mx-3" id="contenuto">
+  <div class="card mb-3 d-flex flex-column"   style="background-color: #00bbff39; width: 18rem;">
     <div id="card">
       <div id="container">
-        <img src="{{ prodotto.immagini[i].url }}" />
+        <img src="{{ prodotto.immagini[i].url }}"  class="card-img-top"/>
       </div>
-      <div id="testi">
+      <div id="testi" class="card-body">
         <h4
           routerLink="/prodotto/{{ prodotto.id }}"
           id="titolo"
@@ -14,7 +14,6 @@
         >
           {{ prodotto.titolo }}
         </h4>
-        <p class="card-text">{{ prodotto.descrizione }}</p>
         <p class="card-text">
           {{ prodotto.prezzo | currency : "EUR" : "symbol" : ".2-2" : "it" }}
         </p>
@@ -31,5 +30,4 @@
     </div>
   </div>
 </div>
-<br /><br /><br /><br />
 <app-footer></app-footer>

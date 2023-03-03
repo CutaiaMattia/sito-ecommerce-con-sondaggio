@@ -14,5 +14,5 @@ public interface IProdottoService {
 
     public Boolean update(Prodotto prodotto);
     public Boolean delete(int id);
-
+    public List<Prodotto> getProdottiByCategoria(String categoria);
 }
