@@ -1,6 +1,12 @@
 nav{
   background-color: rgb(168, 212, 255);
-  position:sticky;
+  position: absolute;
+  bottom: 12px;
+  left: 0;
+  margin-left: 12px;
+  margin-right: 12px;
+  width: calc(100vw - 24px);
+
 }
 
 
@@ -11,3 +17,4 @@ div#testo{
  padding-left: 50%;
  padding-top: 10px;
 }
+
