@@ -1,0 +1,14 @@
+#info , #email, #password, #registra, h3, #terms,#anagrafica {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+
+#dataPicker{
+  text-align: center;
+}
+
+
+

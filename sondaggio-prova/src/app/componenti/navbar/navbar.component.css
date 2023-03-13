@@ -55,3 +55,8 @@
   padding-right: 1vw;
   border-right: solid 2px black ;
 }
+
+#search-icon{
+  display: flex;
+
+}

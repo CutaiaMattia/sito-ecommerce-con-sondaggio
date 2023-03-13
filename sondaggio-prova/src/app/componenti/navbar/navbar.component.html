@@ -24,8 +24,8 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <div>
-            <button class="btn btn-primary">Accedi</button>
-            <button class="btn btn-dark my-2">Registrati</button>
+            <button class="btn btn-primary" routerLink="/login">Accedi</button>
+            <button class="btn btn-dark my-2" routerLink="/registrazione">Registrati</button>
           </div>
         </ul>
       </div>
@@ -59,22 +59,17 @@
         <input
           class="form-control me-2"
           type="search"
-          placeholder="Search"
+          placeholder="Cosa stai cercando?"
           aria-label="Search"
         />
-        <button class="btn btn-primary" type="submit">Search</button>
+        <button class="btn btn-primary" type="submit">
+            <span class="material-symbols-outlined" id="search-icon">
+              search
+              </span>
+        </button>
       </form>
     </div>
   </nav>
 </div>
 
-<!--
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <a class="nav-link active mx-3" aria-current="page" routerLink="/sondaggio" >sondaggio</a>
-    </li>
-    <li>
-      <a class="nav-link active" aria-current="page" routerLink="">Home</a>
-    </li>
-  </ul>
-  -->
+

@@ -32,6 +32,8 @@ public class ProdottoService implements IProdottoService {
         }
     }
 
+
+
     @Override
     public List<Prodotto> getProdottiByCategoria(String categoria) {
         List<Prodotto> prodottoPhone = new ArrayList<>();
@@ -44,6 +46,31 @@ public class ProdottoService implements IProdottoService {
             return prodottoPhone;
 
     }
+
+
+
+    public List<Prodotto> getSearch(String nomeProdotto){
+        List<Prodotto> prodottiFind = new ArrayList<>();
+        for(Prodotto prodotto : iProdottoRepository.findAll()) {
+            if(((prodotto.getTitolo().toLowerCase().trim()).contains(nomeProdotto.toLowerCase().trim()))
+            ){
+                prodottiFind.add(prodotto);
+            }
+        }
+        return prodottiFind;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     @Override

@@ -33,8 +33,9 @@ public class ImmagineController {
       }
 
 
-      @GetMapping("/prodotto/{idProdotto}")
-    public List<Immagine> getAllByIdProdotto(@PathVariable int idProdotto){
-        return iImmagineService.getUrlByIdProdotto(idProdotto);
-      }
+
+    @GetMapping("/prodotto/{idProdotto}")
+    public List<Immagine> getAllImmaginiByIdProdotto(@PathVariable int idProdotto){
+        return iImmagineService.getAllImmaginIByIdProdotto(idProdotto);
+    }
 }

@@ -1,0 +1,212 @@
+
+
+
+<h3 class="my-5">Registrati ora</h3>
+<form
+  novalidate
+  #signupForm="ngForm"
+  class="row g-3"
+  style="max-width: calc(100vw - 20px); padding-bottom: 20px;"
+  (ngSubmit)="onFormSubmit(signupForm)"
+>
+<div  id="anagrafica">
+<div class="form-group col-3 mx-3">
+  <label for="name" class="control-label">Nome</label>
+  <input
+    type="text"
+    class="form-control"
+    ngModel
+    name="nome"
+    id="name"
+    placeholder="nome"
+    required
+
+  />
+</div>
+
+<div class="form-group col-3 mx-3">
+  <label for="surname" class="control-label">Cognome</label>
+  <input
+    type="text"
+    class="form-control"
+    id="cognome"
+    name="surname"
+    placeholder="cognome"
+    ngModel
+    required
+  />
+</div>
+
+</div>
+  <!-- Email input block -->
+
+  <div ngModelGroup="email" #userEmail="ngModelGroup">
+    <div id="email">
+      <div class="form-group col-3 mx-3">
+        <label for="inputEmail" class="control-label">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          ngModel
+          name="mail"
+          id="inputEmail"
+          placeholder="Email"
+          required
+
+        />
+      </div>
+
+      <div class="form-group col-3 mx-3">
+        <label for="confirm" class="control-label">Conferma email</label>
+        <input
+          type="text"
+          class="form-control"
+          id="confirm"
+          name="confirmMail"
+          placeholder="conferma email"
+          ngModel
+          required
+        />
+      </div>
+</div>
+
+      <!-- Email error block-->
+      <div
+        *ngIf="
+          (userEmail.invalid && userEmail.dirty) ||
+          userEmail.value?.mail != userEmail.value?.confirmMail
+        "
+        class="col-3 mx-3 text-danger"
+      >
+        <div
+          *ngIf="passwordControll  else nomatchEmail"
+        >
+          Email non valida
+        </div>
+        <ng-template #nomatchEmail> L'email deve corrispondere. </ng-template>
+
+      </div>
+
+  </div>
+
+
+
+  <!-- Password block -->
+  <div ngModelGroup="password" #userPassword="ngModelGroup">
+    <div id="password">
+      <div class="form-group col-3 mx-3">
+        <label for="inputPassword" class="control-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          ngModel
+          name="pwd"
+          id="inputPassword"
+          placeholder="Password"
+          minlength="8"
+          required
+        />
+      </div>
+
+      <div class="form-group col-3 mx-3">
+        <div>
+          <label for="confirmPassword" class="control-label"
+            >Conferma Password</label
+          >
+
+          <input
+            type="password"
+            class="form-control"
+            ngModel
+            name="confirmPwd"
+            id="confirmPassword"
+            placeholder="Conferma Password"
+            required
+          />
+        </div>
+      </div>
+    </div>
+      <!-- Password error block-->
+
+      <div
+        *ngIf="
+          (userPassword.invalid && userPassword.dirty) ||
+          userPassword.value?.pwd != userPassword.value?.confirmPwd
+        "
+        class="col-3 mx-3 text-danger"
+      >
+        <div *ngIf="userPassword.value?.pwd.length < 8; else nomatch">
+          Si prega di inserire una password di almeno 8 caratteri
+        </div>
+        <ng-template #nomatch> La Password deve corrispondere. </ng-template>
+      </div>
+
+  </div>
+
+  <br />
+  <div id="info">
+    <div class="col-1 mx-3" style="width: 150px;">
+      <label for="inputCitta" class="form-label">città</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputCitta"
+        name="citta"
+        ngModel
+        required
+      />
+    </div>
+    <div class="col-3 mx-3">
+      <label for="inputAddress" class="form-label">Indirizzo</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputAddress"
+        name="Indirizzo"
+        ngModel
+        required
+      />
+    </div>
+
+    <div class="col-1 mx-3" style="width: 150px;">
+      <label for="dataPicker" class="form-label"> data di nascità </label>
+      <input
+        type="date"
+        class="form-control"
+        id="dataPicker"
+        name="dataNascita"
+        ngModel
+        required
+      />
+    </div>
+  </div>
+
+  <div id="terms">
+    <!-- Terms checkbox block -->
+
+    <div class="form-group checkbox">
+      <div class=" mx-3">
+        <input type="checkbox" ngModel name="terms" #terms="ngModel" required />
+        Confirm that you've read the Terms and Condition
+      </div>
+
+      <!-- Terms checkbox error block -->
+      <div
+        *ngIf="terms.invalid && terms.touched"
+        class=" mx-3 text-danger"
+      >
+        You need to check this box to continue
+      </div>
+    </div>
+  </div>
+  <!-- Buttons block -->
+
+  <div id="registra" class="form-group my-5">
+    <button type="submit" class="btn btn-success"
+    [disabled]="!signupForm.form.valid || userPassword.value?.pwd != userPassword.value?.confirmPwd || userEmail.value?.mail != userEmail.value?.confirmMail">Submit</button>
+  </div>
+
+</form>
+
+
+

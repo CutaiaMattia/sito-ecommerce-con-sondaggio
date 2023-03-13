@@ -6,14 +6,18 @@ import { EsitoComponent } from './componenti/esito/esito.component';
 import { Page404Component } from './componenti/page404/page404.component';
 import { GuardEsitoGuard } from './auth/guard-esito.guard';
 import { ProdottoComponent } from './componenti/prodotto/prodotto.component';
+import { LoginComponent } from './componenti/login/login.component';
+import { RegistazioneComponent } from './componenti/registazione/registazione.component';
 
 
 const routes: Routes = [
   {path:"" , component:HomepageComponent},
   {path:"sondaggio", component:  SondaggioComponent},
   {path:"404", component:Page404Component},
+  {path:"login", component: LoginComponent},
+  {path:"registrazione", component: RegistazioneComponent},
   {path:"esito", component: EsitoComponent, canActivate :[GuardEsitoGuard]},
-  { path:"prodotto", component:ProdottoComponent },
+  {path:"prodotto", component:ProdottoComponent },
   {path:"prodotto/:id", component: ProdottoComponent },
   {path:"**", redirectTo: "/404"}
 

@@ -37,4 +37,9 @@ public class ProdottoController {
     }
 
 
+    @GetMapping("/parz/{nomeParziale}")
+    public List<Prodotto> getSearch( @PathVariable String nomeParziale){
+        return iProdottoService.getSearch(nomeParziale);
+    }
+
 }

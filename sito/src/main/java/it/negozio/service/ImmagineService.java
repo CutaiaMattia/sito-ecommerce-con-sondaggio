@@ -83,15 +83,12 @@ public class ImmagineService implements IImmagineService {
         }
     }
 
-    @Override
-    public List<Immagine>  getUrlByIdProdotto(int idProdotto){
-        List<Immagine> immagini = new ArrayList<>();
-        for(Immagine immagine :getAll()){
-            if(immagine.getProdotto().getId() == idProdotto){
-                immagini.add(immagine);
-            }
 
-        }
-        return immagini;
+
+
+
+    public List<Immagine> getAllImmaginIByIdProdotto(int idProdotto){
+        Prodotto prodotto = Prodotto.builder().id(idProdotto) .build();
+        return  iImmagineRepository.findByProdotto(prodotto);
     }
 }

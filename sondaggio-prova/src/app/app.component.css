@@ -2,3 +2,7 @@ h3{
   text-align: center;
   padding-top: 5%;
 }
+
+body{
+  min-height: 100vh;
+}

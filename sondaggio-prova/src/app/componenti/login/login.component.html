@@ -1,1 +1,45 @@
-<p>login works!</p>
+
+<div id="login-page">
+  <div class="container-fluid" id="login-text">
+    <h3>Login</h3>
+  </div>
+
+  <form #login="ngForm" (ngSubmit)="click()">
+    <div class="container-fluid" id="login-form">
+      <div class="col-3">
+        <label for="inputEmail4" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="inputEmail4"
+          name="email"
+          ngModel
+          email
+          required
+        />
+      </div>
+      <div class="col-3">
+        <label for="inputPassword6" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="inputPassword6"
+          aria-describedby="passwordHelpInline"
+          name="password"
+          ngModel
+          required
+        />
+      </div>
+    </div>
+
+    <div id="bottone-accedi">
+      <button
+        class="btn btn-primary my-3"
+        type="submit"
+        [disabled]="!login.valid"
+      >
+        accedi
+      </button>
+    </div>
+  </form>
+</div>
