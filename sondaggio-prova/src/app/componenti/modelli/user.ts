@@ -1,7 +1,7 @@
 export class User {
   id: number;
   nome: string;
-  congnome:string;
+  cognome:string;
   email: {
     mail: string;
     confirmMail : string;

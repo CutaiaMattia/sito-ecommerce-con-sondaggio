@@ -25,12 +25,12 @@
 </div>
 
 <div class="form-group col-3 mx-3">
-  <label for="surname" class="control-label">Cognome</label>
+  <label for="cognome" class="control-label">Cognome</label>
   <input
     type="text"
     class="form-control"
     id="cognome"
-    name="surname"
+    name="cognome"
     placeholder="cognome"
     ngModel
     required
@@ -73,17 +73,34 @@
       <!-- Email error block-->
       <div
         *ngIf="
-          (userEmail.invalid && userEmail.dirty) ||
-          userEmail.value?.mail != userEmail.value?.confirmMail
+          userEmail.value?.mail != userEmail.value?.confirmMail || emailInvalid || emailExist
         "
         class="col-3 mx-3 text-danger"
       >
         <div
-          *ngIf="passwordControll  else nomatchEmail"
-        >
+          *ngIf="emailInvalid then ifBlock   else elsIf"> </div>
+        <ng-template #ifBlock >
           Email non valida
-        </div>
-        <ng-template #nomatchEmail> L'email deve corrispondere. </ng-template>
+        </ng-template>
+
+        <ng-template #elsIf>
+          <div *ngIf="emailExist then exist else nomatchEmail"></div>
+          <ng-template #exist>
+            <div>
+              Email esistente
+            </div>
+          </ng-template>
+
+
+          <ng-template #nomatchEmail>
+            <div  *ngIf="userEmail.value?.confirmMail!">
+              L'email deve corrispondere.
+            </div>
+           </ng-template>
+
+        </ng-template>
+
+
 
       </div>
 
@@ -162,7 +179,7 @@
         type="text"
         class="form-control"
         id="inputAddress"
-        name="Indirizzo"
+        name="indirizzo"
         ngModel
         required
       />
@@ -201,10 +218,13 @@
   </div>
   <!-- Buttons block -->
 
+
+  <button type="button" (click)="btnboh()">ciaoooooo</button>
   <div id="registra" class="form-group my-5">
     <button type="submit" class="btn btn-success"
     [disabled]="!signupForm.form.valid || userPassword.value?.pwd != userPassword.value?.confirmPwd || userEmail.value?.mail != userEmail.value?.confirmMail">Submit</button>
   </div>
+
 
 </form>
 

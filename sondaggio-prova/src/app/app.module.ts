@@ -15,6 +15,7 @@ import { Page404Component } from './componenti/page404/page404.component';
 import { ProdottoComponent } from './componenti/prodotto/prodotto.component';
 import { LoginComponent } from './componenti/login/login.component';
 import { RegistazioneComponent } from './componenti/registazione/registazione.component';
+import { AvvenutaRegistrazioneComponent } from './componenti/avvenuta-registrazione/avvenuta-registrazione.component';
 
 
 
@@ -31,6 +32,7 @@ import { RegistazioneComponent } from './componenti/registazione/registazione.co
     ProdottoComponent,
     LoginComponent,
     RegistazioneComponent,
+    AvvenutaRegistrazioneComponent,
 
 
   ],

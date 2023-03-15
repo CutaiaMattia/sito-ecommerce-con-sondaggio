@@ -8,6 +8,7 @@ import { GuardEsitoGuard } from './auth/guard-esito.guard';
 import { ProdottoComponent } from './componenti/prodotto/prodotto.component';
 import { LoginComponent } from './componenti/login/login.component';
 import { RegistazioneComponent } from './componenti/registazione/registazione.component';
+import { AvvenutaRegistrazioneComponent } from './componenti/avvenuta-registrazione/avvenuta-registrazione.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:"404", component:Page404Component},
   {path:"login", component: LoginComponent},
   {path:"registrazione", component: RegistazioneComponent},
+  {path: "success", component: AvvenutaRegistrazioneComponent},
   {path:"esito", component: EsitoComponent, canActivate :[GuardEsitoGuard]},
   {path:"prodotto", component:ProdottoComponent },
   {path:"prodotto/:id", component: ProdottoComponent },

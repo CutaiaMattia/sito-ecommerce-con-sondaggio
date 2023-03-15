@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(catalog = "user", schema = "")
+@Table(catalog = "anagrafica", schema = "")
 public class User {
 
     @Id
@@ -40,11 +40,11 @@ public class User {
     @Column(name = "indirizzo")
     private String indirizzo;
 
-    @Column(name = "data-nascità")
+    @Column(name = "data_nascita")
     private LocalDate dataNascita;
 
-    @Column(name = "data-creazione")
+    @Column(name = "data_creazione")
     private LocalDate dataCreazione;
-    @Column(name = "data-modifica")
+    @Column(name = "data_modifica")
     private LocalDate dataModifica;
 }
