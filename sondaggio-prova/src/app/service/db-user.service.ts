@@ -13,5 +13,15 @@ export class DbUserService {
   saveUser(user:{}){
     return this.http.post("http://localhost:8080/user",user);
    }
+
+  validationLogin(user:{}){
+    return this.http.post("http://localhost:8080/user/validate",user);
+   }
+
+
+   getAnagraficaByEmail(email:string){
+    return this.http.get("http://localhost:8080/user/"+email);
+   }
+
 }
 

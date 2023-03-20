@@ -15,7 +15,10 @@ import { Page404Component } from './componenti/page404/page404.component';
 import { ProdottoComponent } from './componenti/prodotto/prodotto.component';
 import { LoginComponent } from './componenti/login/login.component';
 import { RegistazioneComponent } from './componenti/registazione/registazione.component';
-import { AvvenutaRegistrazioneComponent } from './componenti/avvenuta-registrazione/avvenuta-registrazione.component';
+import { SucessComponent } from './componenti/sucess/sucess.component';
+import { CookieService } from 'ngx-cookie-service';
+import { TimerInactivityComponent } from './componenti/timer-inactivity/timer-inactivity.component';
+
 
 
 
@@ -32,7 +35,8 @@ import { AvvenutaRegistrazioneComponent } from './componenti/avvenuta-registrazi
     ProdottoComponent,
     LoginComponent,
     RegistazioneComponent,
-    AvvenutaRegistrazioneComponent,
+    SucessComponent,
+    TimerInactivityComponent,
 
 
   ],
@@ -45,7 +49,8 @@ import { AvvenutaRegistrazioneComponent } from './componenti/avvenuta-registrazi
     ReactiveFormsModule,
 
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [CookieService],
+  bootstrap: [AppComponent],
+
 })
 export class AppModule { }

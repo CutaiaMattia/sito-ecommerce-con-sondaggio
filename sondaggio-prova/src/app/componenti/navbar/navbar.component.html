@@ -23,10 +23,15 @@
           <span class="material-symbols-outlined" id="profilo"> account_circle </span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-          <div>
+          <div *ngIf="!logged else bloccoElse">
             <button class="btn btn-primary" routerLink="/login">Accedi</button>
             <button class="btn btn-dark my-2" routerLink="/registrazione">Registrati</button>
           </div>
+          <ng-template #bloccoElse>
+
+            <button class="btn btn-primary" routerLink="/profilo">profilo</button>
+            <button class="btn btn-dark my-2" routerLink="/" (click)="logout()">log out</button>
+          </ng-template>
         </ul>
       </div>
 
@@ -43,7 +48,7 @@
       </button>
     </div>
     <div id="img">
-      <a class="navbar-brand d-flex align-items-center" href="">
+      <a class="navbar-brand d-flex align-items-center" routerLink="">
         <img
           src="./assets/img/prova.png"
           alt="logo"

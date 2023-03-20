@@ -1,4 +1,4 @@
-package it;
+package it.user.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +13,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import com.google.common.collect.ImmutableList;
 
 @Configuration
-public class Config extends WebSecurityConfigurerAdapter{
+public class Config extends WebSecurityConfigurerAdapter {
 
 
     @Override
@@ -21,11 +21,12 @@ public class Config extends WebSecurityConfigurerAdapter{
         http.cors().and().csrf().disable();
     }
 
+
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         final CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(ImmutableList.of("http://localhost:4200"));
-        configuration.setAllowedMethods(ImmutableList.of("POST","GET","PUT","DELETE"));
+        configuration.setAllowedMethods(ImmutableList.of("POST", "GET", "PUT", "DELETE"));
         configuration.addAllowedHeader("*");
         configuration.setAllowCredentials(false);
         final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -38,7 +39,4 @@ public class Config extends WebSecurityConfigurerAdapter{
         return new BCryptPasswordEncoder();
     }
 
-
-
 }
-

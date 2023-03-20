@@ -1,22 +1,21 @@
 package it.user.model;
 
 
+import lombok.Builder;
 import lombok.Data;
-import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
 
+import java.time.LocalDate;
+
+
+@Builder
 @Data
-public class UserFE {
+public class UserAnagrafica {
 
     int id;
     String nome;
     String cognome;
-    Map<String,String> email = new HashMap<>();
-    Map<String,String> password = new HashMap<>();
+    String email;
     String citta;
     String indirizzo;
     LocalDate dataNascita;
-    Boolean terms;
-
 }

@@ -1,6 +1,8 @@
 package it.user.service;
 
+import it.user.model.LoginUser;
 import it.user.model.User;
+import it.user.model.UserAnagrafica;
 import it.user.model.UserFE;
 import it.user.model.response.ResponseUser;
 import it.user.repository.IUserRepository;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -24,6 +27,13 @@ public class UserService implements IUserService{
     }
 
 
+    @Override
+    public User findByEmail(String email) {
+        if (iUserRepository.findByEmail(email).isPresent()) {
+            return iUserRepository.findByEmail(email).get();
+        }
+        return null;
+    }
 
     @Override
     public ResponseUser save(UserFE user) throws Exception {
@@ -70,5 +80,54 @@ public class UserService implements IUserService{
     @Override
     public List<User> getAll(){
         return iUserRepository.findAll();
+    }
+
+    @Override
+    public ResponseUser validationLogin(LoginUser user) {
+        ResponseUser ru = new ResponseUser();
+        Optional<User> userToVerify = iUserRepository.findByEmail(user.getEmail());
+        if(userToVerify.isPresent()){
+            if(passwordEncoder.matches(user.getPassword(),userToVerify.get().getPassword() )){
+                ru.setBody(passwordEncoder.matches(user.getPassword(),userToVerify.get().getPassword()));
+                ru.setResponse(HttpStatus.OK);
+                ru.setMessage("VERIFICATO");
+                return ru;
+            } else {
+                ru.setMessage("PASSWORD ERRATA");
+                ru.setResponse(HttpStatus.NOT_FOUND);
+                ru.setBody(passwordEncoder.matches(user.getPassword(),userToVerify.get().getPassword()));
+                return ru;
+            }
+        } else {
+            ru.setResponse(HttpStatus.NOT_FOUND);
+            ru.setMessage("EMAIL NON REGISTRATA");
+            return ru;
+        }
+    }
+
+    public ResponseUser getAnagraficaByEmail(String email){
+        ResponseUser ru = new ResponseUser();
+        Optional<User> optionalUser = iUserRepository.findByEmail(email);
+        if(optionalUser.isPresent()){
+            ru.setBody(
+            UserAnagrafica.builder()
+                    .id(optionalUser.get().getId())
+                    .email(optionalUser.get().getEmail())
+                    .nome(optionalUser.get().getNome())
+                    .cognome(optionalUser.get().getCognome())
+                    .dataNascita(optionalUser.get().getDataNascita())
+                    .citta(optionalUser.get().getCitta())
+                    .indirizzo(optionalUser.get().getIndirizzo())
+                    .build()
+            );
+            ru.setMessage("anagrafica trovata");
+            ru.setResponse(HttpStatus.OK);
+
+        } else {
+            ru.setMessage("anagrafica mancante");
+            ru.setResponse(HttpStatus.NOT_FOUND);
+        }
+
+        return ru;
     }
 }
