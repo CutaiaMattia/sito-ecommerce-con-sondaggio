@@ -16,6 +16,7 @@ export class User {
   terms: boolean;
 
 
+
 constructor(values: Object = {}) {
   //Constructor initialization
     Object.assign(this, values);

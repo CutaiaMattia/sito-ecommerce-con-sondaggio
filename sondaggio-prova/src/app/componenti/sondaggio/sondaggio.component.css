@@ -12,3 +12,7 @@
 .container-fluid{
   height: 59vh;
 }
+
+#pagina{
+  min-height: calc(100vh - 39.7vh);
+}

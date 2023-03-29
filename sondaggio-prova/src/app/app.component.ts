@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, } from '@angular/core';
 import { DatiService } from './service/dati.service';
 
 
@@ -7,10 +7,14 @@ import { DatiService } from './service/dati.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent{
+export class AppComponent implements OnDestroy{
 
 
   constructor(private dati : DatiService, private cdRef:ChangeDetectorRef) {
+  }
+
+  ngOnDestroy(): void {
+    localStorage.clear()
   }
 
 /*

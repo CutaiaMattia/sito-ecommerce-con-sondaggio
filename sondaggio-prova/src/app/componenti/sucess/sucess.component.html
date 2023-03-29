@@ -1,11 +1,12 @@
+<div id="pagina">
 <div *ngIf="daLogin else bloccoElse">
- bentornato {{ls.getItem("nome") }}
- <p> tra 10 secondi verrai reindirizzato nella homepage</p>
+ bentornato <strong> {{ls.getItem("nome") }}</strong>
+ <p> tra {{time}} secondi verrai reindirizzato nella homepage</p>
 </div>
 <ng-template #bloccoElse>
 
 benvenuto nel nostro sito
 
-<p> tra 10 secondi verrai reindirizzato nella homepage</p>
+<p> tra {{time}} secondi verrai reindirizzato nella homepage</p>
 </ng-template>
-
+</div>

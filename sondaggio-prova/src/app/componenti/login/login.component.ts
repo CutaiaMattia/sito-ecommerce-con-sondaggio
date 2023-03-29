@@ -3,8 +3,6 @@ import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DatiService } from 'src/app/service/dati.service';
 import { DbUserService } from 'src/app/service/db-user.service';
-import { User } from '../modelli/user';
-import { UserAnagrafica } from '../modelli/UserAnagrafica';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +14,7 @@ export class LoginComponent {
 
 
   user : any
-
+  items:number
   passwordInvalid: boolean = false
   emailNonValida: boolean = false
   DaLogin = this.ds.daLogin
@@ -28,6 +26,7 @@ export class LoginComponent {
         return data[key]})
       if(data["message"] == "PASSWORD ERRATA"){
         this.passwordInvalid = true
+        this.emailNonValida = false
         ngForm.reset()
       } else if(data["message"] == "EMAIL NON REGISTRATA"){
         this.emailNonValida = true
@@ -48,12 +47,21 @@ export class LoginComponent {
           this.ds.setLocalStorage("indirizzo", data["body"].indirizzo)
           this.ds.setLocalStorage("citta", data["body"].citta)
           this.ds.setLocalStorage("data di nascita", data["body"].dataNascita)
+          this.ds.setLocalStorage("idProdotti", data["body"].idProdotti)
+          this.ds.setLocalStorage("items", data["body"].idProdotti.length )
+          this.ds.setLocalStorage("email", data["body"].email)
+          if(data["body"].idProdotti != "")
+          this.ds.setItems(data["body"].idProdotti.length)
+
           console.log(this.ds.user)
         return data["body"]})
         )
-
         this.router.navigate(["/success"])
       }
       })
   }
+
+
+
+
 }

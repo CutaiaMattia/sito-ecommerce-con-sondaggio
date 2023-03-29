@@ -28,8 +28,10 @@ public class Prodotto{
     private String barcode;
     @Column(name = "titolo")
     private String titolo;
-    @Column(name = "descrizione")
-    private String descrizione;
+    @Column(name = "descrizione_breve")
+    private String descrizioneB;
+    @Column(name = "descrizione_lunga")
+    private String descrizioneL;
     @Column(name = "valido")
     private Boolean valido;
     @Column(name = "data_creazione")

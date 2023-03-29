@@ -1,0 +1,26 @@
+<div id="pagina">
+<div [ngSwitch]="response">
+  <div *ngSwitchCase="'valido'">
+      <h1 > Account attivato, Buona navigazione</h1>
+      <h3>reindirizzamento tra {{time}} </h3>
+  </div>
+  <div *ngSwitchCase="'token errato'">
+      <h1>Errore di attivazione account</h1>
+      <p>Probabilmente ha richiesto un nuovo link di attivazione che troverà nella sual email</p>
+  </div>
+  <div *ngSwitchCase="'token scaduto'">
+      <h1>Errore di attivazione account</h1>
+      <h3> l'account può essere attivato entro le prime 2 ore dopo la registrazioni</h3>
+      <h3> può richiedere un altro link di attivazione <button class="btn btn-primary" (click)="reSendValidationEmail()">cliccando qui</button></h3>
+  </div>
+  <div *ngSwitchCase="'email gia attiva'">
+    <h1> Attivazione già effettuata</h1>
+    <h3>reindirizzamento tra {{time}} </h3>
+  </div>
+  <div *ngSwitchCase="'generato'">
+    <h1> token generato</h1>
+    <h2> verifica l'email, è stata spedita una mail con il link per l'attivazione del tuo account</h2>
+    <h3>reindirizzamento alla homepage tra {{time}} </h3>
+  </div>
+</div>
+</div>

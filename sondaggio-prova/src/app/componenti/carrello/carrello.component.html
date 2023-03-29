@@ -1,0 +1,82 @@
+<div id="pagina">
+<div id="blocco-header">
+  <div *ngIf='ls.getItem("nome") else notLogged'>
+    <h4 id="nome-profilo" > Ciao <strong>{{ls.getItem("nome")}}</strong>
+    </h4>
+  </div>
+<ng-template #notLogged>
+<h4 id="nome-profilo" >
+  Ciao utente
+</h4>
+</ng-template>
+  <div>
+  <h3 id="titolo-carrello">Il tuo carrello</h3>
+</div>
+<div>
+  <p></p>
+</div>
+</div>
+
+
+
+<div *ngFor="let prodotto of carrelloItems; let i = index" class="mx-3" id="contenuto">
+  <div class="card mb-3 "  id="card">
+    <div id="contenuto">
+      <div id="container">
+        <img src="{{prodotto[10][0].url}}"  class="card-img-top mx-3 my-3" style="width: 12rem; height: 12rem; object-fit: contain;"/>
+      </div>
+      <div id="testi" class="card-body">
+        <h4>
+          {{ prodotto[2] }}
+
+
+        </h4>
+        <pre class="text-break">{{prodotto[3]}}</pre>
+      </div>
+
+    </div>
+
+      <p class="card-text" id="costo">
+        {{ prodotto[8] | currency : "EUR" : "symbol" : ".2-2" : "it" }}
+      </p>
+
+ </div>
+
+
+
+</div>
+<div id="bottoni">
+  <p class="card-text" >
+    {{ totale | currency : "EUR" : "symbol" : ".2-2" : "it" }}
+  </p>
+  <button
+    class="btn btn-light mx-3 my-3"
+    id="acquista"
+    style="color: white; background-color: #0d6efd"
+  >
+    Acquista
+  </button>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

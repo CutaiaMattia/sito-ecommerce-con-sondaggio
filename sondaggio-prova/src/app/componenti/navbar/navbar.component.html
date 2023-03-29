@@ -9,7 +9,7 @@
   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
 />
 
-<div class="container-fluid my-3">
+
   <nav class="navbar navbar-light">
     <div id="badge" class="d-flex flex-row">
       <div class="dropdown">
@@ -29,18 +29,45 @@
           </div>
           <ng-template #bloccoElse>
 
-            <button class="btn btn-primary" routerLink="/profilo">profilo</button>
-            <button class="btn btn-dark my-2" routerLink="/" (click)="logout()">log out</button>
+            <!-- Example single danger button -->
+            <li>
+                <hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" routerLink="/profilo" >Profilo</a></li>
+                <li><a class="dropdown-item" >Storico ordini effettuati</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <button class="btn btn-dark my-2" routerLink="/" (click)="logout()">log out</button>
           </ng-template>
         </ul>
       </div>
 
-      <button class="btn" type="button" id="btn-carrello">
-        <span class="material-symbols-outlined" id="carrello">
-          <div routerLink="/sss">shopping_cart</div>
-        </span>
+
+
+
+
+  <span class="material-symbols-outlined" id="carrello" >
+    <div routerLink="/carrello" >
+      <button type="button" class="btn position-relative" id="icona-carrello" >shopping_cart
+
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary" id="count-item" *ngIf="items">
+         {{items}}
+           <span class="visually-hidden">unread messages</span>
+         </span>
       </button>
 
+    </div>
+  </span>
+
+
+
+
+<!--
+
+      <button class="btn" type="button" id="btn-carrello">
+        <span class="material-symbols-outlined" id="carrello">
+          <div routerLink="/carrello">shopping_cart</div>
+        </span>
+      </button>
+-->
       <button class="btn" type="button" routerLink="/sondaggio" id="btn-sondaggio">
         <span class="material-symbols-outlined" id="sondaggio">
           checklist_rtl
@@ -75,6 +102,6 @@
       </form>
     </div>
   </nav>
-</div>
+
 
 

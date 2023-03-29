@@ -7,3 +7,6 @@
   height: 60vh;
 
 }
+#pagina{
+  min-height: calc(100vh - 28vh);
+}

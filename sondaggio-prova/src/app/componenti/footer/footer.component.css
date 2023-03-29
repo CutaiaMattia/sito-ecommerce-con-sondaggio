@@ -1,11 +1,11 @@
 .nav-custom{
   background-color: rgb(168, 212, 255);
-  position: fixed;
   bottom: 0;
   left: 0;
-  height: 48px;
-  width: calc(100vw - 3.3vw);
-  margin: 1vw;
+  height: 8vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 
@@ -17,6 +17,6 @@ div#testo{
 display: flex;
 flex-direction: column;
 align-items: center;
-margin-top: 12px ;
+
 }
 

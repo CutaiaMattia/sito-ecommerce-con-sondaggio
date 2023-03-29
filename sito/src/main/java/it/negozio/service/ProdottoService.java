@@ -82,7 +82,8 @@ public class ProdottoService implements IProdottoService {
             Prodotto prodottoToSave = prodottoOptional.get();
             prodottoToSave.setBarcode(prodotto.getBarcode());
             prodottoToSave.setTitolo(prodotto.getTitolo());
-            prodottoToSave.setDescrizione(prodotto.getDescrizione());
+            prodottoToSave.setDescrizioneB(prodotto.getDescrizioneB());
+            prodottoToSave.setDescrizioneL(prodotto.getDescrizioneL());
             prodottoToSave.setDataModifica(LocalDate.now());
             prodottoToSave.setPrezzo(prodotto.getPrezzo());
             prodottoToSave.setValido(prodotto.getValido());

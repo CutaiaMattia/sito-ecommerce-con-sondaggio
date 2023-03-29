@@ -1,10 +1,10 @@
 
-
+<div id="pagina">
 <div *ngFor="let prodotto of prodotti; let i = index" class="mx-3" id="contenuto">
   <div class="card mb-3 d-flex flex-column"   style="background-color: #00bbff39; width: 18rem;">
     <div id="card">
       <div id="container">
-        <img src="{{ prodotto.immagini[i].url }}"  class="card-img-top"/>
+        <img src="{{ prodotto.immagini[0].url }}"  class="card-img-top"/>
       </div>
       <div id="testi" class="card-body">
         <h4
@@ -21,13 +21,15 @@
     </div>
     <div id="bottoni">
       <button
+      type="button"
+      (click)="addItem(prodotto.id)"
         class="btn btn-light mx-3 my-3"
         id="acquista"
         style="color: white; background-color: #0d6efd"
       >
-        Acquista
+        Aggiungi al carrello
       </button>
     </div>
   </div>
 </div>
-
+</div>

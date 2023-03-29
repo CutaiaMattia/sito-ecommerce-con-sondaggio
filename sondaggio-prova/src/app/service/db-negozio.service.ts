@@ -22,4 +22,24 @@ export class DbNegozioService {
   getProdottoById(idProdotto: number){
     return this.http.get("http://localhost:8080/prodotto/"+ idProdotto)
   }
+
+  addItem(body:{}){
+    return this.http.put("http://localhost:8080/user/add",body)
+  }
+
+  addItemFromString(body:{}){
+    return this.http.put("http://localhost:8080/user/addFromString",body)
+  }
+
+
+
+  validaAccount(email: string, token : string){
+    return this.http.put("http://localhost:8080/user/valida/"+email+"/"+token,null)
+  }
+
+  generaToken(email:string){
+    return this.http.put("http://localhost:8080/user/generate/"+email,null)
+  }
+
+
 }

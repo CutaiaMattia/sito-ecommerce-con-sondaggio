@@ -11,6 +11,11 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.google.common.collect.ImmutableList;
+import sendinblue.ApiClient;
+import sendinblue.ApiException;
+import sendinblue.auth.ApiKeyAuth;
+import sibApi.AccountApi;
+import sibModel.GetAccount;
 
 @Configuration
 public class Config extends WebSecurityConfigurerAdapter {
@@ -38,5 +43,7 @@ public class Config extends WebSecurityConfigurerAdapter {
     public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder();
     }
+
+
 
 }

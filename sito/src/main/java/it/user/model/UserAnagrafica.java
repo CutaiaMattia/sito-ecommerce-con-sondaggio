@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 
 @Builder
@@ -18,4 +22,9 @@ public class UserAnagrafica {
     String citta;
     String indirizzo;
     LocalDate dataNascita;
+    List<String> idProdotti = new ArrayList<>();
+    boolean attivo;
+
+    String token;
+    LocalDateTime dataToken;
 }

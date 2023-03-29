@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 @Entity
 @Data
@@ -46,6 +48,19 @@ public class User {
     private LocalDate dataCreazione;
     @Column(name = "data_modifica")
     private LocalDate dataModifica;
+
+    @Column(name = "id_prodotti")
+    private String idProdotti;
+
+
+    @Column(name = "attivo")
+    private boolean attivo;
+
+    @Column(name = "token_attivazione")
+    private String token;
+
+    @Column(name = "data_creazione_token")
+    private LocalDateTime dataToken;
 
 
 

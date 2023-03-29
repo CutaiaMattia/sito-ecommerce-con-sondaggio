@@ -17,8 +17,9 @@ import { LoginComponent } from './componenti/login/login.component';
 import { RegistazioneComponent } from './componenti/registazione/registazione.component';
 import { SucessComponent } from './componenti/sucess/sucess.component';
 import { CookieService } from 'ngx-cookie-service';
-import { TimerInactivityComponent } from './componenti/timer-inactivity/timer-inactivity.component';
-
+import { CarrelloComponent } from './componenti/carrello/carrello.component';
+import { AttivaAccountComponent } from './componenti/attiva-account/attiva-account.component';
+import { PasswordDimenticataComponent } from './componenti/password-dimenticata/password-dimenticata.component';
 
 
 
@@ -36,7 +37,9 @@ import { TimerInactivityComponent } from './componenti/timer-inactivity/timer-in
     LoginComponent,
     RegistazioneComponent,
     SucessComponent,
-    TimerInactivityComponent,
+    CarrelloComponent,
+    AttivaAccountComponent,
+    PasswordDimenticataComponent,
 
 
   ],

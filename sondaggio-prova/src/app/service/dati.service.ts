@@ -13,16 +13,26 @@ import { UserAnagrafica } from '../componenti/modelli/UserAnagrafica';
 export class DatiService {
 
   private routerInfo: BehaviorSubject<boolean>;
+  private routerInfoItems: BehaviorSubject<number>;
 
   constructor(private cookieService:CookieService , private readonly route: Router) {
 
     this.routerInfo = new BehaviorSubject<boolean>(false);
+    this.routerInfoItems = new BehaviorSubject<number>(0);
+
   }
 
   user : UserAnagrafica;
-
+  items: number = 0
   logged:boolean = true
   daLogin:boolean = false
+
+  setItems(items:number):void{
+    this.routerInfoItems.next(items)
+  }
+  getItems() :Observable<number>{
+    return this.routerInfoItems.asObservable();
+  }
 
  setLogged(logged: boolean): void {
     this.routerInfo.next(logged);

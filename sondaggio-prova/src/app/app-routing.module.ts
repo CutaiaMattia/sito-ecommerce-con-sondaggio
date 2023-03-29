@@ -9,6 +9,9 @@ import { ProdottoComponent } from './componenti/prodotto/prodotto.component';
 import { LoginComponent } from './componenti/login/login.component';
 import { RegistazioneComponent } from './componenti/registazione/registazione.component';
 import { SucessComponent } from './componenti/sucess/sucess.component';
+import { CarrelloComponent } from './componenti/carrello/carrello.component';
+import { AttivaAccountComponent } from './componenti/attiva-account/attiva-account.component';
+import { PasswordDimenticataComponent } from './componenti/password-dimenticata/password-dimenticata.component';
 
 
 const routes: Routes = [
@@ -18,9 +21,14 @@ const routes: Routes = [
   {path:"login", component: LoginComponent},
   {path:"registrazione", component: RegistazioneComponent},
   {path: "success", component: SucessComponent},
+  {path: "attivato", component: AttivaAccountComponent},
+  {path: "attivato/:email/:token" , component:AttivaAccountComponent},
+  {path: "password-dimenticata", component:PasswordDimenticataComponent},
+  {path: "password-dimenticata/:email", component :PasswordDimenticataComponent},
   {path:"esito", component: EsitoComponent, canActivate :[GuardEsitoGuard]},
   {path:"prodotto", component:ProdottoComponent },
   {path:"prodotto/:id", component: ProdottoComponent },
+  { path: "carrello", component:CarrelloComponent},
   {path:"**", redirectTo: "/404"}
 
 ];

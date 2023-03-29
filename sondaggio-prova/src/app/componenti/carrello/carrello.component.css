@@ -1,0 +1,50 @@
+#card{
+  background-color: #00bbff39;
+  width: 98vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+
+}
+
+#contenuto{
+  display: flex;
+  align-items: flex-start;
+}
+
+#card{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#costo{
+  margin: 2vw;
+}
+
+#titolo-carrello{
+  margin-right: 10vw;
+}
+
+#nome-profilo{
+  margin-left: 2vw;
+}
+
+
+#blocco-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+#bottoni{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: baseline;
+}
+
+#pagina{
+  min-height: calc(100vh - 29.5vh);
+}

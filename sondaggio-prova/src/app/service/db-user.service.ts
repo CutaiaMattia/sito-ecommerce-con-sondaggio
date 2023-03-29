@@ -23,5 +23,13 @@ export class DbUserService {
     return this.http.get("http://localhost:8080/user/"+email);
    }
 
+   validaEmail(email:string){
+    return this.http.get("http://localhost:8080/user/valida-email/"+email)
+   }
+
+   updatePassword(email:string, body:{}){
+    return this.http.put("http://localhost:8080/user/cambia-password/"+ email, body)
+   }
+
 }
 

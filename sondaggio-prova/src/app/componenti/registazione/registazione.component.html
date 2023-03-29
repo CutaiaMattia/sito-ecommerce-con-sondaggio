@@ -1,7 +1,7 @@
 
+<div id="pagina">
 
-
-<h3 class="my-5">Registrati ora</h3>
+<h3 class="my-2">Registrati ora</h3>
 <form
   novalidate
   #signupForm="ngForm"
@@ -218,15 +218,13 @@
   </div>
   <!-- Buttons block -->
 
-
-  <button type="button" (click)="btnboh()">ciaoooooo</button>
-  <div id="registra" class="form-group my-5">
+  <div id="registra" class="form-group my-3">
     <button type="submit" class="btn btn-success"
     [disabled]="!signupForm.form.valid || userPassword.value?.pwd != userPassword.value?.confirmPwd || userEmail.value?.mail != userEmail.value?.confirmMail">Submit</button>
   </div>
 
 
 </form>
-
+</div>
 
 

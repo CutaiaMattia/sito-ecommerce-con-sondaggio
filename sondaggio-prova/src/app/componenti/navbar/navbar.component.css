@@ -5,11 +5,11 @@
 }
 
 .navbar{
-  padding: 1vw;
   height:  15vh;
    background-color: rgb(168, 212, 255);
    display: flex;
    flex-wrap: nowrap;
+   justify-content: space-around;
   }
 
 
@@ -35,12 +35,11 @@
     flex-direction: column;
   }
 
-  #btn-carrello {
-    padding-right: 0;
-  }
 
   #dropdownMenuButton1{
-    padding-right: 0;
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1vw;
   }
 
 .dropdown-menu{
@@ -50,13 +49,38 @@
   box-shadow: 2px 5px #888888;
   background: aliceblue;
 }
-
-#profilo,  #carrello{
+ #carrello{
   padding-right: 1vw;
-  border-right: solid 2px black ;
+  padding-left: 1vw;
+}
+
+#carrello{
+  border-right: solid 2px black;
+  border-left: solid 2px black;
 }
 
 #search-icon{
   display: flex;
+}
 
+#icona-carrello{
+font-size: x-large;
+width: 3rem;
+height: 3rem;
+}
+
+#btn-sondaggio{
+  margin-left: 1vw;
+}
+
+#count-item{
+  height: 1.3rem;
+  width: 1.2rem;
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.7rem;
+}
+
+#icona-carrello.btn{
+line-height: 0;
 }

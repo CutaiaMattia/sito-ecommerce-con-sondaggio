@@ -1,6 +1,4 @@
 
-<div *ngIf="isProdotto; else bloccoElse">
-
   <div *ngIf="prodotto">
     <div class="card mb-3 mx-3" style="background-color: #00bbff39">
       <div id="card">
@@ -11,11 +9,11 @@
                 <div class="carousel-item active">
                   <img
                     class="d-block"
-                    src="https://www.mondomobileweb.it/wp-content/uploads/2022/09/apple-iphone-14-pro-780x455.png"
+                    src="{{prodotto[10][0].url}}"
                     alt="..."
                   />
                 </div>
-                <div *ngFor="let immagine of prodotto[9]; let i = index">
+                <div *ngFor="let immagine of prodotto[10]; let i = index">
                   <div class="carousel-item" *ngIf="i != 0">
                     <img class="d-block" src="{{ immagine.url }}" alt="..." />
                   </div>
@@ -50,9 +48,9 @@
         </div>
         <div id="testi">
           <h4 id="titolo" class="card-title">{{ prodotto[2] }}</h4>
-          <p class="card-text">{{ prodotto[3] }}</p>
+          <pre class="card-text">{{ prodotto[4] }}</pre>
           <p class="card-text">
-            {{ prodotto[7] | currency : "EUR" : "symbol" : ".2-2" : "it" }}
+            {{ prodotto[8] | currency : "EUR" : "symbol" : ".2-2" : "it" }}
           </p>
         </div>
       </div>
@@ -67,50 +65,7 @@
       </div>
     </div>
   </div>
-  <br><br>
-  <app-footer></app-footer>
-</div>
+  <br><br><br>
 
-<ng-template #bloccoElse>
-  <app-navbar></app-navbar>
 
-  <div
-    *ngFor="let prodottoSingolo of prodotti; let i = index"
-    class="container my-4"
-  >
-    <div class="card mb-3" style="background-color: #00bbff39">
-      <div id="card">
-        <div id="container">
-          <img src="{{ prodottoSingolo.immagini[i].url }}" />
-        </div>
-        <div id="testi">
-          <h4
-            routerLink="/prodotto/{{ prodottoSingolo.id }}"
-            id="titolo"
-            class="card-title"
-          >
-            {{ prodottoSingolo.titolo }}
-          </h4>
-          <p class="card-text">{{ prodottoSingolo.descrizione }}</p>
-          <p class="card-text">
-            {{
-              prodottoSingolo.prezzo
-                | currency : "EUR" : "symbol" : ".2-2" : "it"
-            }}
-          </p>
-        </div>
-      </div>
-      <div id="bottoni">
-        <button
-          class="btn btn-light mx-3 my-3"
-          id="acquista"
-          style="color: white; background-color: #0d6efd"
-        >
-          Acquista
-        </button>
-      </div>
-    </div>
-  </div>
-
-</ng-template>
 

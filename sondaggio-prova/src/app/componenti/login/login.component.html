@@ -1,4 +1,4 @@
-
+<div id="pagina">
 <div id="login-page">
   <div class="container-fluid" id="login-text">
     <h3>Login</h3>
@@ -18,6 +18,10 @@
           required
         />
       </div>
+<div *ngIf="emailNonValida">
+  <p> email non valida</p>
+</div>
+
       <div class="col-3">
         <label for="inputPassword6" class="form-label">Password</label>
         <input
@@ -30,7 +34,19 @@
           required
         />
       </div>
+
+      <div *ngIf="passwordInvalid">
+        <p> password errata</p>
+      </div>
+
+      <div>
+        <a class="href" routerLink="/password-dimenticata">
+          password dimenticata?
+      </a>
     </div>
+
+    </div>
+
 
     <div id="bottone-accedi">
       <button
@@ -42,4 +58,5 @@
       </button>
     </div>
   </form>
+</div>
 </div>
