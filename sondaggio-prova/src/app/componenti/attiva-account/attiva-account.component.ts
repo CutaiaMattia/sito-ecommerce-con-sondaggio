@@ -63,7 +63,8 @@ export class AttivaAccountComponent implements OnInit, OnDestroy, OnChanges {
           if (data['message'] == 'VALIDO') {
             console.log(data['message'])
             this.response = 'valido';
-            console.log(localStorage.getItem("idProdotti"))
+            console.log(" prima di settare gli items da attiva-components  "+localStorage.getItem("idProdotti"))
+            console.log(" riprende il la stringa idProdotti la splitta e ritorna la lunghezza  "+  localStorage.getItem('idProdotti')!.split(",").length)
             this.dati.setItems(localStorage.getItem('idProdotti')!.split(",").length)
             this.startTimer()
           } else if (data['message'] == 'TOKEN ERRATO') {

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DatiService } from 'src/app/service/dati.service';
@@ -9,8 +9,21 @@ import { DbUserService } from 'src/app/service/db-user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   constructor(private dbUser: DbUserService,private readonly router:Router ,private ds : DatiService) {}
+  ngOnInit(): void {
+    if(localStorage.getItem("idProdotti") ){
+
+      this.ds.setItems(localStorage.getItem("idProdotti") == "" || localStorage.getItem("idProdotti")  ?  localStorage.getItem("idProdotti")!?.split(",").length : 0)
+
+    this.ds.getItems().subscribe((value) => {
+      console.log("getItems in OnInit per recuperare il value(osbervable) " + value)
+        this.items = value;
+        console.log(this.items)
+
+    });
+  }
+  }
 
 
   user : any
@@ -48,12 +61,9 @@ export class LoginComponent {
           this.ds.setLocalStorage("citta", data["body"].citta)
           this.ds.setLocalStorage("data di nascita", data["body"].dataNascita)
           this.ds.setLocalStorage("idProdotti", data["body"].idProdotti)
-          this.ds.setLocalStorage("items", data["body"].idProdotti.length )
           this.ds.setLocalStorage("email", data["body"].email)
-          if(data["body"].idProdotti != "")
-          this.ds.setItems(data["body"].idProdotti.length)
 
-          console.log(this.ds.user)
+
         return data["body"]})
         )
         this.router.navigate(["/success"])

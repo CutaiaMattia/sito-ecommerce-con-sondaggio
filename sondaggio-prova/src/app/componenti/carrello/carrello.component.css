@@ -48,3 +48,16 @@
 #pagina{
   min-height: calc(100vh - 29.5vh);
 }
+
+#qty{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 2vw;
+    left: 2vw;
+}
+
+
+#meno{
+  --bs-btn-bg: #666666
+}

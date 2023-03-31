@@ -49,6 +49,11 @@ public class UserController {
     public ResponseUser addItem(@RequestBody RequestItemAdd ria){
         return iUserService.addItem(ria.getEmail(), (Integer) ria.getIdProdotto());
     }
+
+    @PutMapping("/removeItem")
+    public ResponseUser removeItem(@RequestBody RequestItemAdd ria){
+        return iUserService.removeItem(ria.getEmail(), (Integer) ria.getIdProdotto());
+    }
     @PutMapping("/addFromString")
     public ResponseUser addItemFromString(@RequestBody RequestItemAdd ria){
         return iUserService.addItemsFromString(ria.getEmail(),(String)ria.getIdProdotto());

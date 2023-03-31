@@ -17,6 +17,8 @@ ngOnInit(): void {
       this.logged = value;
     });
 
+
+
     this.dati.getItems().subscribe((value) => {
       this.items = value;
       console.log(this.items)

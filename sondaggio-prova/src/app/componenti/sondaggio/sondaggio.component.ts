@@ -1,6 +1,7 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, Component , OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DatiService } from 'src/app/service/dati.service';
 import { DbService } from 'src/app/service/db-sondaggio.service';
 
 
@@ -10,10 +11,10 @@ import { DbService } from 'src/app/service/db-sondaggio.service';
   styleUrls: ['./sondaggio.component.css']
 })
 export class SondaggioComponent implements OnInit, OnDestroy {
-constructor(private db : DbService, private readonly router:Router){}
+constructor(private db : DbService, private readonly router:Router, private ds :DatiService){}
 
 
-
+items:number
 maxPages:any
 cont : number = 1
 idSegnalazione : number = 28
@@ -38,6 +39,17 @@ risposteToPost:
 
 
 ngOnInit(): void {
+  if(localStorage.getItem("idProdotti") ){
+
+    this.ds.setItems(localStorage.getItem("idProdotti") == "" || localStorage.getItem("idProdotti")  ?  localStorage.getItem("idProdotti")!?.split(",").length : 0)
+
+  this.ds.getItems().subscribe((value) => {
+    console.log("getItems in OnInit per recuperare il value(osbervable) " + value)
+      this.items = value;
+
+  });
+}
+
   this.percorso = 0
   this.domande = this.show()
   this.db.abilitaEsito = true

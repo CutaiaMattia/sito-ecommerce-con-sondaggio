@@ -27,6 +27,11 @@ export class DbNegozioService {
     return this.http.put("http://localhost:8080/user/add",body)
   }
 
+  removeItem(body:{}){
+    return this.http.put("http://localhost:8080/user/removeItem",body)
+  }
+
+
   addItemFromString(body:{}){
     return this.http.put("http://localhost:8080/user/addFromString",body)
   }

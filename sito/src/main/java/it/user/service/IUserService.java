@@ -24,4 +24,5 @@ public interface IUserService {
     ResponseUser validaEmail(String email);
     void sendEmail(String recipient);
      ResponseUser addItemsFromString(String email, String idProdotti);
+    ResponseUser removeItem(String email, int idProdotto);
 }

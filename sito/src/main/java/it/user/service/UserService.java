@@ -163,6 +163,28 @@ public class UserService implements IUserService {
         }
         return null;
     }
+    public ResponseUser removeItem(String email, int idProdotto) {
+        ResponseUser ru = new ResponseUser();
+        if (findByEmail(email) != null) {
+            User u = findByEmail(email);
+            if (u.getIdProdotti().equals("")) {
+               ru.setMessage("carrello vuoto");
+               ru.setBody(null);
+               ru.setResponse(HttpStatus.NOT_FOUND);
+                // u.setIdProdotti(String.valueOf(idProdotto));
+
+            } else {
+              //  u.getIdProdotti().replaceFirst(String.valueOf(idProdotto)+",?","");
+                System.out.println(" id prodotti  "+u.getIdProdotti());
+                u.setIdProdotti( u.getIdProdotti().replaceFirst(idProdotto +",?",""));
+                System.out.println(" id prodotti dopo il set (replace) "+u.getIdProdotti());
+            }
+            iUserRepository.save(u);
+            ru.setBody(u);
+            return ru;
+        }
+        return null;
+    }
 
 
     public ResponseUser addItemsFromString(String email, String idProdotti) {
